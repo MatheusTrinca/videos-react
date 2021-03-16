@@ -1,26 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import youtube from '../apis/youtube';
-import SearchBar from './SearchBar';
-import VideoList from './VideoList';
-import VideoDetail from './VideoDetail';
+import React, { useState } from "react";
+import SearchBar from "./SearchBar";
+import VideoList from "./VideoList";
+import VideoDetail from "./VideoDetail";
 
 const App = () => {
-  const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
-  useEffect(() => {
-    onTermSubmit('cars');
-  }, []);
-
-  const onTermSubmit = async (term) => {
-    const response = await youtube.get('/search', {
-      params: {
-        q: term,
-      },
-    });
-    setVideos(response.data.items);
-    setSelectedVideo(response.data.items[0]);
-  };
+  //setSelectedVideo(response.data.items[0]);
 
   return (
     <div className="ui container">
@@ -41,4 +27,4 @@ const App = () => {
 
 export default App;
 
-// Continua no 5
+// Continua no 8
